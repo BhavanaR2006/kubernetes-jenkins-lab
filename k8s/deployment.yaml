@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-web
+  template:
+    metadata:
+      labels:
+        app: github-web
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
